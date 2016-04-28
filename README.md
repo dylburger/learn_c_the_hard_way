@@ -1,2 +1,2 @@
-# learn_c_the_hard_way
+# Learn C The Hard Way
 Working through examples / problems in Learn C The Hard Way
