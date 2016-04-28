@@ -1,3 +1,11 @@
 In Clang, -Weverything will give you absolutely all warnings
     http://amattn.com/p/better_apps_clang_weverything_or_wall_is_a_lie.html
+
 -g generates debug information
+
+export called on its own (e.g. in nginx Makefile) prints all the current variables in the shell's environment
+
+$(MAKE) (also in the nginx Makefile) generates a recursive call to make using the same binary that was originally used to call make
+    https://www.gnu.org/software/make/manual/html_node/MAKE-Variable.html
+    Why a recursive call to make here, to begin with?
+        Looks like a superset of the release code is found in the target RELEASE. In RELEASE, they're also using Mercurial to commit and tag a release before releasing it
