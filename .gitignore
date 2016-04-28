@@ -1,4 +1,8 @@
+# Ignore everything
 *
+# Un-ignore directories
 !*/
+# Un-ignore all C source code
 !*.c
+# Finally, un-ignore the .gitignore file itself
 !.gitignore
