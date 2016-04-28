@@ -2,7 +2,8 @@
 *
 # Un-ignore directories
 !*/
-# Un-ignore all C source code
+# Un-ignore all C source code, Makefile
 !*.c
+!Makefile
 # Finally, un-ignore the .gitignore file itself
 !.gitignore
