@@ -5,7 +5,9 @@ CC=cc
 clean:
 	rm -f ex1
 	rm -f ex3
+	rm -f ex4
 
 all:
 	$(CC) ex1.c -o ex1
 	$(CC) ex3.c -o ex3
+	$(CC) ex4.c -o ex4
