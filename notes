@@ -71,3 +71,17 @@ Interestingly, if I try to compile, Valgrind test and run this:
     it works, where the %d should read %c
 
     IT PRINTS THE ASCII VALUE FOR the character, in this case 'J' = 74!
+
+This is an interesting example:
+
+    long val = -100000;
+    printf("Big number: %lu.\n", val);
+    
+    prints:
+
+    Big number: 18446744073709451616
+
+    which is 99,999 smaller than the largest possible unsigned long value on a 64-bit computer (my Mac), defined in limits.h as ULONG_MAX
+    https://en.wikibooks.org/wiki/C_Programming/C_Reference/limits.h
+
+
