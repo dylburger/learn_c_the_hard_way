@@ -53,3 +53,11 @@ Valgrind
     Valgrind is most useful when you've compiled your program using the -g flag, i.e. with debugging enabled:
 
     http://maintainablecode.logdown.com/posts/245425-valgrind-is-not-a-leak-checker
+
+In example 5, things I don't quite understand yet:
+    Why the # in front of include?
+    char in front of the *argv[] - this is a character array, yeah?
+    Why the * in front of argv? This references a pointer, yeah?
+    I get return 0, but how does this actually work at the machine level? Why did we choose 0 for successful return values?
+
+
