@@ -60,4 +60,14 @@ In example 5, things I don't quite understand yet:
     Why the * in front of argv? This references a pointer, yeah?
     I get return 0, but how does this actually work at the machine level? Why did we choose 0 for successful return values?
 
+Double gives you more precision than float
+    Need to read up more about this again
 
+Interestingly, if I try to compile, Valgrind test and run this:
+
+    printf("My whole name is %s %d. %s.\n",
+        first_name, initial, last_name);
+
+    it works, where the %d should read %c
+
+    IT PRINTS THE ASCII VALUE FOR the character, in this case 'J' = 74!
