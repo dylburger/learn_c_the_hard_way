@@ -9,3 +9,38 @@ $(MAKE) (also in the nginx Makefile) generates a recursive call to make using th
     https://www.gnu.org/software/make/manual/html_node/MAKE-Variable.html
     Why a recursive call to make here, to begin with?
         Looks like a superset of the release code is found in the target RELEASE. In RELEASE, they're also using Mercurial to commit and tag a release before releasing it
+
+If we remove a variable from a given printf declaration, we get warnings but the code compiles, then we see results like this:
+    
+    $ ./ex3
+    I am 1413429688 years old.
+
+    I am 72 inches tall.
+
+    Why?
+
+        The compiler allocates stack space for the stack frame (for all the local variables), but fails to initialize the data in that memory address to anything if we don't define it, so we're just pointing our variable to some address in memory that has some value
+        https://en.wikipedia.org/wiki/Uninitialized_variable#Example_of_the_C_language
+
+    We see the same behavior when we fail to initialize the variable age to any value (int age;), which is even more scary!
+
+If we change the %d to %f in the following printf statement:
+
+    int age = 10;
+    printf("I am %d years old.\n", age);
+    printf("I am %f years old.\n", age);
+
+    # dylan @ DYLANs-MacBook-Pro in ~/learning/learn_c_the_hard_way on git:master x [21:01:12] C:1
+    $ make ex3
+    cc -Wall -g    ex3.c   -o ex3
+    ex3.c:8:36: warning: format specifies type 'double' but the argument has type 'int' [-Wformat]
+        printf("I am %f years old.\n", age);
+                     ~~                ^~~
+                     %d
+    1 warning generated.
+
+    # dylan @ DYLANs-MacBook-Pro in ~/learning/learn_c_the_hard_way on git:master x [21:01:14]
+    $ ./ex3
+    I am 0.000000 years old.
+
+    That is, we only generate a warning, but the value is 0.0000! Not even an issue with precision - the value is just off!

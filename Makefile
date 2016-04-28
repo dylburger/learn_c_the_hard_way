@@ -1,10 +1,11 @@
 # Makefile for ex1 program
 CFLAGS=-Wall -g
 CC=cc
-FILE=ex1.c
 
 clean:
 	rm -f ex1
+	rm -f ex3
 
-all: $(FILE)
-	$(CC) $(FILE) -o ex1
+all:
+	$(CC) ex1.c -o ex1
+	$(CC) ex3.c -o ex3
