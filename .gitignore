@@ -7,3 +7,4 @@
 !Makefile
 # Finally, un-ignore the .gitignore file itself
 !.gitignore
+!notes
