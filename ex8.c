@@ -11,8 +11,8 @@ int main(int argc, char *argv[])
     };
 
     areas[0] = 100;
-    name[4] = 'm';
-    full_name[10] = 'B';
+    // Set the first elements of our full_name array to the first element of the name chararray
+    full_name[0] = name[0];
 
     printf("The size of an int: %ld\n", sizeof(int));
     printf("The size of areas (int[]): %ld\n",

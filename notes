@@ -107,3 +107,5 @@ I don't get errors when running Valgrind, or compiling, my example 8 program wit
     name="Dylan" and full_name="Dylan J. Sather����ҫ� �)�"
 
     After ~45 minutes of searching the web, I still couldn't find out why I'm not getting errors. The errors are, however, still reported by the compiler, so in this case I appear to be OK
+
+The size of ints varies depending on the processer architecture, to some degree. On 16-bit machines, the size of ints was the same as the size of a register, or 2 bytes. But since 32-bit machines became so common, the size of the int stayed the same on 64-bit machines (4 bytes)
