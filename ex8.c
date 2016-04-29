@@ -10,6 +10,10 @@ int main(int argc, char *argv[])
         'S', 'a', 't', 'h', 'e', 'r', '\0'
     };
 
+    areas[0] = 100;
+    name[4] = 'm';
+    full_name[10] = 'B';
+
     printf("The size of an int: %ld\n", sizeof(int));
     printf("The size of areas (int[]): %ld\n",
             sizeof(areas));

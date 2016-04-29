@@ -99,3 +99,11 @@ Signed vs unsigned
     If you ever need to represent negative values, you need signed ints
 
 Remember man ascii!
+
+I don't get errors when running Valgrind, or compiling, my example 8 program without a null byte at the end. The program just prints a newline at the end
+
+    Moving the definition for my chararray before the areas array gives me different output, however:
+
+    name="Dylan" and full_name="Dylan J. Sather����ҫ� �)�"
+
+    After ~45 minutes of searching the web, I still couldn't find out why I'm not getting errors. The errors are, however, still reported by the compiler, so in this case I appear to be OK
