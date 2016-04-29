@@ -84,4 +84,18 @@ This is an interesting example:
     which is 99,999 smaller than the largest possible unsigned long value on a 64-bit computer (my Mac), defined in limits.h as ULONG_MAX
     https://en.wikibooks.org/wiki/C_Programming/C_Reference/limits.h
 
+Why do we see two separate points at which the compiler will flag integer overflow as an issue?
+    
+    ex7_break_universe_of_defects.c:11:83: warning: overflow in expression; result is 4611686018427387904 with type 'long' [-Winteger-overflow]
+    long universe_of_defects = 1L * 1024L * 1024L * 1024L * 1024L * 1024L * 1024L * 500L * 10000000000L;
+                                                                                  ^
+    ex7_break_universe_of_defects.c:11:90: warning: overflow in expression; result is 0 with type 'long' [-Winteger-overflow]
+    long universe_of_defects = 1L * 1024L * 1024L * 1024L * 1024L * 1024L * 1024L * 500L * 10000000000L;
+                                                                                         ^
+    2 warnings generated.
 
+Signed vs unsigned
+    Signed has to represent the space of negative and positive numbers, and needs extra bits to do so. With unsigned numbers, we can steal that bit for more storage, expanding the positive range of numbers we can represent
+    If you ever need to represent negative values, you need signed ints
+
+Remember man ascii!
