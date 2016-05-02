@@ -2,8 +2,9 @@
 *
 # Un-ignore directories
 !*/
-# Un-ignore all C source code, Makefile
+# Un-ignore all C source code, Python code, Makefile
 !*.c
+!*.py
 !Makefile
 # Finally, un-ignore the .gitignore file itself
 !.gitignore

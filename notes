@@ -112,4 +112,35 @@ The size of ints varies depending on the processer architecture, to some degree.
 
 C stores strings as arrays of bytes, terminated with a null (nul) byte (\0)
 
+    D y l a n \0
+
+argv[0] stores the name of the script we're currently executing, and is generally skipped if iterating through arguments passed to a script. To skip it, execute this for loop:
+
+    // argc is the count of arguments
+    for (i = 1; i < argc; i++) {
+        printf("argument %d: %s\n", i, argv[i]);
+    }
+
+    The operating system passes in the command line arguments, and sets argc to the number of arguments in the argc array
+
+every for loop has three major compontents: 
+
+    for (initializer; test; incrementer) { ...
+
+    Note that the initalizer runs AFTER the code is executed; we then test the condition and if it's satisfied (TRUE), we move on
+
+Our states array is a 2-dimensions character array, the states being elements at the top level, and the characters of states being elements of each sub-array
+
+When we called the program from a Python script, passing in a large number of arguments, we finally hit an error after trying to pass in 100,000 args:
+
+    OSError: [Errno 7] Argument list too long
+
+    But we don't appear to be hitting the OS limit...
+
+    # dylan @ DYLANs-MacBook-Pro in ~/learning/learn_c_the_hard_way on git:master x [11:39:23] C:1
+    $ getconf ARG_MAX
+    262144
+
+    Read here for more info: http://www.in-ulm.de/~mascheck/various/argmax/
+
 
