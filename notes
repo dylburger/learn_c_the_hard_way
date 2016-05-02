@@ -143,4 +143,19 @@ When we called the program from a Python script, passing in a large number of ar
 
     Read here for more info: http://www.in-ulm.de/~mascheck/various/argmax/
 
+More about for loops - from K&R C
+    
+    The initializer and incrementer are often assignments of some form
+    The test condition is a "relational" expression
+    ANY OF THESE THREE PARTS CAN BE OMITTED! The semicolons must remain
+        
+        for (;;) {
+            ...
 
+        This becomes an infinite loop that must return or break at some point
+
+        It's best to keep functions that deal with the execution of the loop in the initialization and incrementation statements
+
+The comma in for loops  - p 62 in K&R
+
+    
