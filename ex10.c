@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 
     char *states[] = {
         "California", "Oregon",
-        "Washington", "Texas"
+        "Washington", NULL
     };
 
     int num_states = 4;
