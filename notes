@@ -158,4 +158,15 @@ More about for loops - from K&R C
 
 The comma in for loops  - p 62 in K&R
 
+    Used to separate multiple statements. Should be used sparingly!
+
+When I tried to reverse my name string inline, writing back to the same memory that I used to store name, I got the following Valgrind error and a segfault:
+
+    ==1565==  Bad permissions for mapped region at address 0x4006BC
+    ==1565==    at 0x400582: main (reverse_my_name.c:15)
+
+The null pointer definitely points nowhere. All other pointers to any real object / function point somewhere. The null pointer points nowhere
     
+    http://c-faq.com/null/null1.html
+
+    NULL is defined as a null pointer constant in the C pre-processor
