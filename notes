@@ -170,3 +170,7 @@ The null pointer definitely points nowhere. All other pointers to any real objec
     http://c-faq.com/null/null1.html
 
     NULL is defined as a null pointer constant in the C pre-processor
+
+C has no built-in boolean type. Instead, an integer that's 0 is false and otherwise it's true. Since computer truth values are simply integers, this makes sense
+
+In general, for loops are more explicit than while loops. Favor for loops, if possible!
