@@ -179,3 +179,19 @@ Why return 0?
     
     The main function in a C program is typically executed by the environment. It's useful to return status to the environment so that we know whether something worked or failed. Returning a value of 0 indicates to the environment that "all is well", where a non-zero status code would indicate that something went wrong.
     On POSIX systems, a status code of 0 typically indicates success, but that might differ on other systems. In the stdlib (stdlib.h), the macro EXIT_SUCCESS is defined, and for greater portability, you should return EXIT_SUCCESS (https://www.gnu.org/software/libc/manual/html_node/Exit-Status.html)
+
+The stack - http://gribblelab.org/CBootcamp/7_Memory_Stack_vs_Heap.html
+    
+    The stack is a special region of computer memory reserved for variables declared in functions, managed by the CPU. The stack is a last in, first out (LIFO) data structure (what does this mean?)
+    When a new variable is declared, its value is pushed onto the stack
+    When the execution of a function finishes, the memory used by the stack is freed (all variables declared inside the function are "popped" off the stack)
+    Luckily, memory on the stack is managed for you! You don't have to manually allocate / free memory
+    The CPU also manages this memory very efficiently, so reading from / writing to the stack is very fast
+    There's a limit to the size of variables stored in the stack, but not in the heap!
+
+The heap
+
+    The heap is a region of memory not managed by the CPU behind the scenes - it's a free region of memory at your disposal
+    When writing to the heap, you must use malloc() or calloc() to allocate a region of memory for use, then call free() to free that region of memory after you're done using it
+    Variables written to the heap are accessible from any function, globally
+    Since you have to access heap memory yourself, via pointers, it's slower to write to / read from than variables in the stack
