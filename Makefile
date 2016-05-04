@@ -1,6 +1,6 @@
 # Makefile for ex1 program
 CFLAGS=-Wall -g
-CC=cc
+CC=clang
 
 clean:
 	rm -f ex1
