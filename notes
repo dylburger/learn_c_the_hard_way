@@ -174,3 +174,8 @@ The null pointer definitely points nowhere. All other pointers to any real objec
 C has no built-in boolean type. Instead, an integer that's 0 is false and otherwise it's true. Since computer truth values are simply integers, this makes sense
 
 In general, for loops are more explicit than while loops. Favor for loops, if possible!
+
+Why return 0?
+    
+    The main function in a C program is typically executed by the environment. It's useful to return status to the environment so that we know whether something worked or failed. Returning a value of 0 indicates to the environment that "all is well", where a non-zero status code would indicate that something went wrong.
+    On POSIX systems, a status code of 0 typically indicates success, but that might differ on other systems. In the stdlib (stdlib.h), the macro EXIT_SUCCESS is defined, and for greater portability, you should return EXIT_SUCCESS (https://www.gnu.org/software/libc/manual/html_node/Exit-Status.html)
