@@ -17,9 +17,6 @@ int main(int argc, char *argv[])
         }
 
         printf("\n");
-
-    } else {
-        printf("You have too many arguments.\n");
     }
 
     return EXIT_SUCCESS;

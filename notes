@@ -195,3 +195,9 @@ The heap
     When writing to the heap, you must use malloc() or calloc() to allocate a region of memory for use, then call free() to free that region of memory after you're done using it
     Variables written to the heap are accessible from any function, globally
     Since you have to access heap memory yourself, via pointers, it's slower to write to / read from than variables in the stack
+
+Conditionals - if / else statements
+
+    If the test portion evaluates to 0, it is false. Else, it's true. This is similar to the way Python evaluates integers to boolean states
+    You MUST put parens around the test condition
+    
