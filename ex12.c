@@ -6,7 +6,7 @@ int main(int argc, char *argv[])
     int i = 0;
 
     if (argc == 1) {
-        printf("You only have one argument. Not enough!\n");
+        printf("You have no arguments!\n");
     // The || operator is OR. If we have any number of arguments > 1, this condition will always evaluate to true and we'll always print all of our arguments
     } else if (argc > 1 || argc < 4) {
         printf("Here are your arguments:\n");
