@@ -15,6 +15,10 @@ int main(int argc, char *argv[])
     // We're skipping argv[0] because it's the string that holds the name of the script
     for (i = 1; i < argc; i++) {
         printf("arg %d, %s\n", i, argv[i]);
+        if (i > 4) {
+            printf("Too many arguments. Breaking!\n");
+            break;
+        }
     }
 
     int num_states = 4;
