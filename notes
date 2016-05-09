@@ -201,3 +201,35 @@ Conditionals - if / else statements
     If the test portion evaluates to 0, it is false. Else, it's true. This is similar to the way Python evaluates integers to boolean states
     You MUST put parens around the test condition
     
+Switch statement
+
+    In C, the switch statement is technically a "jump table". You can only include expressions that result in integers here, and these integers are used to jump from the top of the switch statement to the portion that matches the specified integer
+    Here's how the switch statement works in excrutiating detail:
+        The compiler marks the place in the program where the switch statement begins
+        The compiler then evaluates the expression in switch(letter) to come up with a number, which in our case is the ASCII code of the letter we're dealing with
+        The compiler has also assigned a location to each of the case statements so we know where to jump to when we encounter an ASCII code equal to the value in the case statement
+        "It then does the math to figure out where Y+letter is located in the switch-statement, and if it's too far then it adjusts it to Y+default." - What does this mean?
+        When you have something like:
+
+            case 'a':
+            case 'A':
+                ...
+                break;
+
+            and say you had 'a' as your input character. The compiler jumps to that location, but then keeps executing, which drops you to the case 'A' block, runs your code, and only then breaks. This is why this works to capture both lower and uppercase characters
+
+    Remember to always include a 'default' branch to catch inputs you don't expect
+    Always start writing the case: and break; statements first so you enumerate your conditions, before writing any other code! 
+        This is probably good practice for other loops and conditional statements, too
+    Try to use if statements if you can. They're simpler.
+
+We saw an example of a non-zero exit code in the case in which we don't provide enough arguments to the program in example 13. Here's how that looks in our environment:
+
+    vagrant@precise64:~/tree/learn_c_the_hard_way$ ./ex13 A
+    0: 'A'
+    vagrant@precise64:~/tree/learn_c_the_hard_way$ echo $?
+    0
+    vagrant@precise64:~/tree/learn_c_the_hard_way$ ./ex13
+    ERROR: You need one argument.
+    vagrant@precise64:~/tree/learn_c_the_hard_way$ echo $?
+    1
