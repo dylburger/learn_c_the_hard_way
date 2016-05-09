@@ -7,7 +7,8 @@ int main(int argc, char *argv[])
 
     if (argc == 1) {
         printf("You only have one argument. Not enough!\n");
-    } else if (argc > 1 && argc < 4) {
+    // The || operator is OR. If we have any number of arguments > 1, this condition will always evaluate to true and we'll always print all of our arguments
+    } else if (argc > 1 || argc < 4) {
         printf("Here are your arguments:\n");
 
         // i will start at 0 and end at one less than argv. We'll increment i a final time, and on the 
@@ -17,6 +18,9 @@ int main(int argc, char *argv[])
         }
 
         printf("\n");
+
+    } else {
+        printf("You have too many arguments.\n");
     }
 
     return EXIT_SUCCESS;
