@@ -27,6 +27,13 @@ int main(int argc, char *argv[])
         i++;
     }
 
+    // After we've printed the contents of our states array (which now contains arguments from the command line), let's change a single elements of argv[]
+    argv[1] = "this_element_has_been_changed";
+    while (i < num_states) {
+        printf("State: %d: %s\n", i, states[i]);
+        i++;
+    }
+
     return 0;
 
 }
