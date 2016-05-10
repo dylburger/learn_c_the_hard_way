@@ -233,3 +233,30 @@ We saw an example of a non-zero exit code in the case in which we don't provide 
     ERROR: You need one argument.
     vagrant@precise64:~/tree/learn_c_the_hard_way$ echo $?
     1
+
+Function declarations
+
+    Forward declaration - if you're using a function before you declare it, you'll need to add a declaration at the top of the program. But why?
+        When you fail to include these declarations at the top of the file, you'll get some errors from the compiler that look something like this:
+
+            vagrant@precise64:~/tree/learn_c_the_hard_way$ make ex14
+            clang -Wall -g    ex14.c   -o ex14
+            ex14.c:13:9: warning: implicit declaration of function 'print_letters' is invalid in C99 [-Wimplicit-function-declaration]
+                    print_letters(argv[i]);
+                    ^
+            ex14.c:17:6: error: conflicting types for 'print_letters'
+            void print_letters(char arg[])
+                 ^
+            ex14.c:13:9: note: previous implicit declaration is here
+                    print_letters(argv[i]);
+                    ^
+            ex14.c:25:13: warning: implicit declaration of function 'can_print_it' is invalid in C99 [-Wimplicit-function-declaration]
+                    if (can_print_it(ch)) {
+                        ^
+            ex14.c:33:5: error: conflicting types for 'can_print_it'
+            int can_print_it(char ch)
+                ^
+            ex14.c:25:13: note: previous implicit declaration is here
+                    if (can_print_it(ch)) {
+
+    
