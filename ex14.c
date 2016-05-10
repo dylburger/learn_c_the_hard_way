@@ -24,7 +24,7 @@ void print_letters(int len, char arg[])
     for (i = 0; i < len; i++) {
         char ch = arg[i];
 
-        if (isalpha(ch) || isblank(ch)) {
+        if (isalnum(ch) || isblank(ch) || ispunct(ch)) {
             printf("'%c' == %d ", ch, ch);
         }
     }
