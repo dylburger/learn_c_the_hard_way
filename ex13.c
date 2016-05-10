@@ -2,17 +2,19 @@
 
 int main(int argc, char *argv[])
 {
-    if (argc != 2) {
+    if (argc < 2) {
         printf("ERROR: You need one argument.\n");
         // Abort execution
         return 1;
     }
 
     // Otherwise, we have an argument and we can move on
-    int i = 0;
+    int i;
+    char letter;
     // Test condition: as long as we have characters in the string (until we reach the nul-byte)
-    for (i = 0; argv[1][i] != '\0'; i++) {
-        char letter = argv[1][i];
+    for (i = 0, letter = argv[1][0]; argv[1][i] != '\0'; i++) {
+
+        letter = argv[1][i];
 
         switch(letter) {
             case 'a':
@@ -50,6 +52,13 @@ int main(int argc, char *argv[])
 
             default:
                 printf("%d: %c is not a vowel\n", i, letter);
+        }
+    }
+
+    // Handle the rest of our arguments in argv[], if we have them
+    if (argc > 2) {
+        for (i = 2; i < argc; i++) {
+            printf("arg %d: %s\n", i, argv[i]);
         }
     }
 
