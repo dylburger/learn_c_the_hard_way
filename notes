@@ -259,4 +259,48 @@ Function declarations
             ex14.c:25:13: note: previous implicit declaration is here
                     if (can_print_it(ch)) {
 
-    
+Example 15 - Pointers    
+
+    int * -> pointer to integer
+    We've seen char * before, a pointer to a character. A string is simply an array of characters
+        cur_age points to a single integer, but ages holds an array of integers. Similarly, a pointer to a _single_ character can be the beginning of a string
+    But next, we define a pointer to a pointer to a char, char **cur_name
+        A pointer to a char points to a single character, or the start of a chararray (array of characters, or a string)
+        Since we have an array of strings, we need to keep two indices - one to the current character we're processing, and another to the string we're processing in the array of strings
+
+    *(cur_name+i) -> the value of (pointer cur_name + i)
+    *(cur_name+i) is equivalent to writing name[i]
+
+    (cur_age - ages) < count
+        This compares the distance between cur_age and ages to count
+        Does this work because as we move our pointer (cur_age), pointer arithmetic returns integer values for the distance between cur_age and ages (effectively the start of the array, at 0)?
+
+    Incrementing a pointer that points to an element of an array points that pointer to the next element of the array
+
+    An array of integers in C is a set of memory allocated to the space needed to store these integers
+    If you dereference the value of ages, the compiler will replace it with the address pointing to the first integer
+    In our program, ages is an address inside the entire computer, where the indices like i that we've been using before reference addresses within a single array like ages
+
+    "C thinks your whole computer is one massive array of bytes"
+
+    So if ages just points to the address of the start of an array of integers, and you want to move that address sequentially to find your target integer, is there another way you can always
+    keep track of the "current index" in a value without incrementing another variable? Yes, A POINTER
+
+    Pointer are variables that point to a specific location in the memory of your computer
+    You need to specify the type of a pointer to make sure you get the right size of data with it (and move by N bytes as you traverse arrays, for instance, where N is the number of bytes used
+    to store values of that type
+
+    Traditionally, for the uses we've seen so far, we want to work with arrays. But when we need direct access to computer memory, we need pointers
+
+    You can use both indices and pointers to reference addresses in memory - these are virtually interchangeable for what we've been doing so far
+
+    Pointers in practice - 4 major things we need pointers for
+        Ask the OS for a chunk of memory and use a pointer to work with it. We can do this with strings, and structs
+        Passing large blocks of memory to functions AS POINTERS so you don't have to pass the whole struct to them
+            What does this mean?
+        Taking the address of a function so you can use it as a dynamic callback
+            What does this mean?
+        Other, complex handling of memory, e.g. reading in files / scanning bytes of data from the network
+
+    You see people using pointers where they should be using arrays a lot, because compilers used to be poor at optimizing array code. Now, that's not the case. You should use a pointer only 
+    in the cases above, and use an array every other time. It's more readable and easier to understand.
