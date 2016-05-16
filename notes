@@ -304,3 +304,20 @@ Example 15 - Pointers
 
     You see people using pointers where they should be using arrays a lot, because compilers used to be poor at optimizing array code. Now, that's not the case. You should use a pointer only 
     in the cases above, and use an array every other time. It's more readable and easier to understand.
+
+Pointer lexicon
+
+    type *ptr
+        A pointer of type named pointer
+    *ptr
+        The value of whatever ptr is pointed at
+    *(prt + i)
+        The value of (whatever ptr is pointing to + i)
+    &thing
+        The address of thing
+    type *ptr = &thing
+        A pointer of type named ptr set to the address of thing
+    ptr++
+        increment to where ptr points
+
+    POINTERS AND ARRAYS ARE NOT THE SAME. You can just work with them in similar ways
