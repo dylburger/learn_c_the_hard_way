@@ -14,14 +14,10 @@ int main(int argc, char *argv[])
 	int count = sizeof(ages) / sizeof(int);
 	int i = 0;
 
-	// define pointers to use to point to elements of the array
-	int *age_ptr = ages;
-	char **name_ptr = names;
-
-	// first way rewritten to use pointers, instead of array syntax
+	// first way using indexing
 	for (i = 0; i < count; i++) {
 		printf("%s has %d years alive.\n",
-		       name_ptr[i], age_ptr[i]);
+		       names[i], ages[i]);
 	}
 
 	printf("---\n");

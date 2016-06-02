@@ -10,9 +10,14 @@ int main(int argc, char *argv[])
 
     // Otherwise, we have an argument and we can move on
     int i = 0;
+
+    // Use a pointer to point to our string, using pointer arithmetic to move
+    // through it
+    char *char_ptr = argv[1];
+
     // Test condition: as long as we have characters in the string (until we reach the nul-byte)
     for (i = 0; argv[1][i] != '\0'; i++) {
-        char letter = argv[1][i];
+        char letter = char_ptr[i];
 
         switch(letter) {
             case 'a':
