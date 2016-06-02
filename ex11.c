@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(int argc, char *argv[])
 {
@@ -10,7 +11,17 @@ int main(int argc, char *argv[])
     };
     int num_states = 4;
 
-    int i = 0;
+    // Using pointers, go through our states in reverse order
+    int number_of_states = sizeof(states) / sizeof(char *);
+    int i = number_of_states - 1;
+    char **state_ptr = states;
+
+    while (i >= 0) {
+	printf("State %d: %s\n", i, state_ptr[i]);
+	i--;
+    };
+
+    i = 0;
     while(i < argc) {
         printf("arg %d: %s\n", i, argv[i]);
         states[i] = argv[i];
